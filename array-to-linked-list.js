@@ -1,11 +1,5 @@
 // take an array and convert it to a linked list
 
-/*
-    Cases that need to be covered:
-
-    * we need to define what a node is within the linked list
-    * 
-*/
 
 function toLinkedList (arr) {
 
@@ -14,14 +8,33 @@ function toLinkedList (arr) {
         this.next = null
     }
 
-    let head = null
+    // let head = null
+
+    function List() {
+        this.head = null
+    }
 
  
-    for(let num of arr) {
-        console.log(num)
+    List.prototype.append = function(data) {
+        // let node = new Node(data)
+        if(this.head === null) {
+            this.head = new Node(data)
+            return
+        }
+        let current = this.head
+        while (current.next != null) {
+            current = current.next
+        }
+        current.next = new Node(data)
+    }
 
+    let list = new List
+    
+    for(let num of arr) {
+        list.append(num)
         
     }
+console.log(list.head)
 
 }
 
