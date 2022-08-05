@@ -75,6 +75,38 @@ class LinkedList {
         }
     }
 
+    appendArray(arr) {
+        for(let item of arr) {
+            this.append(item)
+        }
+        return
+    }
+
+    /*
+        Inserts a value into the LinkedList as a new node
+        in the position it belongs.
+
+        This method assumes the LinkedList is already
+        sorted in ascending order.
+    */
+    insertInOrder(data) {
+        if (this.head === null) {
+            this.head = new Node(data)
+            return
+        }
+        let current = this.head
+        
+        while(current.next.next !== null) {
+            let oldNext = current.next.next
+            if (data <= current.next.next.data) {
+                current.next.next = new Node(data)
+                current.next.next.next = oldNext
+                return
+            }
+            current = current.next
+        }
+    }
+
     stringify() {
         let string = ""
         if (this.head === null) {
@@ -98,15 +130,52 @@ class LinkedList {
         console.log(this.head.stringifyTwo())
         return this.head.stringifyTwo()
     }
+
+    static fromArray(arr) {
+        const linkedList = new LinkedList()
+
+        // implementation
+
+        return linkedList
+    }
 }
 
-const list = new LinkedList()
+{
+    const list = new LinkedList()
+    const array = [34, 68, 24, 89, 5, 77]
+    
+    // list.append(5)
+    // list.append(7)
+    // list.append(87)
+    // list.append(33)
+    
+    // list.appendArray(array)
+    
+    // list.stringifyTwo()
+    
+    // console.log(list.head)
+    
+    // console.log(LinkedList.fromArray(array).stringify())
+}
 
-list.append(5)
-list.append(7)
-list.append(87)
-// list.append(33)
-list.stringifyTwo()
+// Tests for insertInOrder
 
-// console.log(list.head)
+{
+    const list = new LinkedList()
+    list.appendArray([1, 2, 3, 5])
 
+    list.insertInOrder(4)
+
+    list.stringify()
+
+}
+
+{
+    const list = new LinkedList()
+    list.appendArray([1])
+
+    list.insertInOrder(4)
+
+    list.stringify()
+
+}
