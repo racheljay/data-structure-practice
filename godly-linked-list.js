@@ -94,6 +94,18 @@ class LinkedList {
             this.head = new Node(data)
             return
         }
+        if(this.head.next === null) {
+            if(this.head.data <= data) {
+                this.head.next = new Node(data)
+                return
+            } else if(this.head.data > data){
+                let oldHead = this.head
+                let newHead = new Node(data)
+                newHead.next = oldHead
+                this.head = newHead
+                return
+            }
+        }
         let current = this.head
         
         while(current.next.next !== null) {
@@ -172,7 +184,7 @@ class LinkedList {
 
 {
     const list = new LinkedList()
-    list.appendArray([1])
+    list.appendArray([7])
 
     list.insertInOrder(4)
 
