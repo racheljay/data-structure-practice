@@ -2,31 +2,21 @@ class Node {
     constructor(data) {
         this.data = data
         this.next = null
-        // this.dataString = "[" + this.data.toString() + "]"
-        this.string = ""
     }
 
     stringify() {
         let dataString = "[" + this.data.toString() + "]"
-        // if(this.next === null) {
-        //     return dataString 
-        // } else {
-        //     return dataString + "->"
-        // }
+
         return dataString
     }
 
     stringifyTwo() {
         let dataString = "[" + this.data.toString() + "]"
         if (this.next !== null) {
-            // this.string = dataString + "->" + this.next.stringifyTwo()
             dataString = dataString + "->" + this.next.stringifyTwo()
             return dataString
-            // return this.string  
         }
         else {
-            // this.string = this.string + dataString
-            // return this.string
             return dataString
         }
 
@@ -98,14 +88,14 @@ class LinkedList {
         let current = this.head
 
         while (current.next !== null) {
-
+            
             if (current.data <= data && current.next.data >= data) {
                 let oldNext = current.next
                 current.next = new Node(data)
                 current.next.next = oldNext
                 return
             }
-
+            
             current = current.next
         }
         if (this.head.data <= data) {
@@ -126,11 +116,12 @@ class LinkedList {
         }
 
         let current = list.head
-        while (list.next != null) {
+        while (current.next != null) {
             this.insertInOrder(current.data)
             current = current.next
         }
         this.insertInOrder(current.data)
+        // return
     }
 
     stringify() {
@@ -225,10 +216,10 @@ class LinkedList {
 
 {
     const otherList = new LinkedList()
-    otherList.appendArray([1, 5, 8])
+    otherList.appendArray([1, 3, 4])
 
     const list = new LinkedList()
-    list.appendArray([2, 4, 6, 7])
+    list.appendArray([1, 2, 4])
     list.mergeOrderedList(otherList)
     list.stringify()
 }
