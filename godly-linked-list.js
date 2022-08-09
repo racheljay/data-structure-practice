@@ -97,6 +97,14 @@ class LinkedList {
             }
             
             current = current.next
+            
+        }
+        if(current.next === null && current.data !== null) {
+            if(data >= current.data) {
+                console.log(data, current.data)
+                current.next = new Node(data)
+                return
+            }
         }
         if (this.head.data <= data) {
             this.head.next = new Node(data)
@@ -214,12 +222,22 @@ class LinkedList {
 //     list.stringify()
 // }
 
+// {
+//     const otherList = new LinkedList()
+//     otherList.appendArray([1, 3, 4])
+
+//     const list = new LinkedList()
+//     list.appendArray([1, 2, 4])
+//     list.mergeOrderedList(otherList)
+//     list.stringify()
+// }
+
 {
     const otherList = new LinkedList()
-    otherList.appendArray([1, 3, 4])
+    otherList.appendArray([5,7])
 
     const list = new LinkedList()
-    list.appendArray([1, 2, 4])
+    list.appendArray([-9, 3])
     list.mergeOrderedList(otherList)
     list.stringify()
 }
