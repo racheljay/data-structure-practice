@@ -21,11 +21,36 @@ class Node {
         }
     }
 
+    insertArray(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            this.insert(arr[i])
+        }
+    }
+
+    /*
+        Returns a tree representation of the array
+    */
+    static fromArray(arr) {
+        if (arr === []) {
+            return null
+        }
+        let current = new Node(arr[0])
+
+        for (let i = 1; i < arr.length; i++) {
+            let val = arr[i]
+            current.insert(val)
+      
+        }
+
+       return current
+
+    }
+
     contains(value) {
         if (value === this.data) {
             console.log(`here is your [${value}], please enjoy`)
             return true
-        } else if (value > this.data) {
+        } else if (value < this.data) {
             if (this.left === null) {
                 console.log("no dice")
                 return false
@@ -52,14 +77,27 @@ class Node {
             this.right.printInOrder()
         }
     }
+
+    printPreOrder() {
+        console.log(this.data, this.right.data, this.left.data)
+
+    }
 }
 
-const myTree = new Node()
+const myTree = new Node(4)
 
-myTree.insert(4)
-myTree.insert(2)
-myTree.insert(8)
+const case1 = [4, 2, 7, 1, 3, 6, 9]
 
-myTree.contains(2)
+// myTree.insertArray(case1)
 
-myTree.printInOrder()
+const tree2 = Node.fromArray(case1)
+console.log(tree2)
+
+// myTree.insert(4)
+// myTree.insert(2)
+// myTree.insert(8)
+
+// myTree.contains(9)
+
+// tree2.printInOrder()
+// myTree.printPreOrder()
