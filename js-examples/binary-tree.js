@@ -79,7 +79,33 @@ class Node {
     }
 
     printPreOrder() {
-        console.log(this.data, this.right.data, this.left.data)
+        if(this.data === undefined) {
+            console.log("nah sis, aint got no roots")
+            return
+        }
+        
+        console.log(this.data)
+        if(this.left === null && this.right === null) return
+        // console.log("right", this.right, "left", this.left)
+        this.left.printPreOrder()
+        this.right.printPreOrder()
+        // let current = this
+        // let currentLeft = this.left
+        // let currentRight = this.right
+
+    
+        // if(this.left !== null && this.right !== null) {
+
+        // }
+        // while(this.data !== null) {
+        //     // this.left.printInOrder()
+        //     console.log(currentLeft.data, currentRight.data)
+
+        // }
+        // if(this.right !== null) {
+        //     // this.right.printInOrder()
+        // }
+        // console.log(this.data, this.right.data, this.left.data)
 
     }
 }
@@ -91,13 +117,13 @@ const case1 = [4, 2, 7, 1, 3, 6, 9]
 // myTree.insertArray(case1)
 
 const tree2 = Node.fromArray(case1)
-console.log(tree2)
+// console.log(tree2)
 
-// myTree.insert(4)
-// myTree.insert(2)
-// myTree.insert(8)
+// tree2.insert(4)
+// tree2.insert(2)
+// tree2.insert(8)
 
-// myTree.contains(9)
+// tree2.contains(9)
 
 // tree2.printInOrder()
-// myTree.printPreOrder()
+tree2.printPreOrder()

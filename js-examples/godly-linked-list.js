@@ -1,4 +1,4 @@
-class Node {
+export class Node {
     constructor(data) {
         this.data = data
         this.next = null
@@ -23,7 +23,7 @@ class Node {
     }
 }
 
-class LinkedList {
+export class LinkedList {
     constructor() {
         // this.head is of type Node
         this.head = null
@@ -165,23 +165,23 @@ class LinkedList {
     }
 }
 
-{
-    const list = new LinkedList()
-    const array = [34, 68, 24, 89, 5, 77]
+// {
+//     const list = new LinkedList()
+//     const array = [34, 68, 24, 89, 5, 77]
 
-    // list.append(5)
-    // list.append(7)
-    // list.append(87)
-    // list.append(33)
+//     // list.append(5)
+//     // list.append(7)
+//     // list.append(87)
+//     // list.append(33)
 
-    // list.appendArray(array)
+//     // list.appendArray(array)
 
-    // list.stringifyTwo()
+//     // list.stringifyTwo()
 
-    // console.log(list.head)
+//     // console.log(list.head)
 
-    // console.log(LinkedList.fromArray(array).stringify())
-}
+//     // console.log(LinkedList.fromArray(array).stringify())
+// }
 
 // Tests for insertInOrder
 
@@ -232,12 +232,12 @@ class LinkedList {
 //     list.stringify()
 // }
 
-{
-    const otherList = new LinkedList()
-    otherList.appendArray([5,7])
+// {
+//     const otherList = new LinkedList()
+//     otherList.appendArray([5,7])
 
-    const list = new LinkedList()
-    list.appendArray([-9, 3])
-    list.mergeOrderedList(otherList)
-    list.stringify()
-}
+//     const list = new LinkedList()
+//     list.appendArray([-9, 3])
+//     list.mergeOrderedList(otherList)
+//     list.stringify()
+// }
