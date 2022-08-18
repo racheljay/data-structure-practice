@@ -22,15 +22,25 @@ export class Queue extends LinkedList {
     // removes the current head node
     pop() {
         if (this.head === null) {
+            return
+        }
+        if (this.head === this.tail) {
             this.head = null
             this.tail = null
-            // console.log(this.head)
-            return this.head
+            return
         }
         let oldHead = this.head
         let newHead = this.head.next
         this.head = newHead
         return oldHead
+    }
+
+    isEmpty() {
+        return this.head === null && this.tail === null
+    }
+
+    peek() {
+        return this.head.data
     }
 }
 

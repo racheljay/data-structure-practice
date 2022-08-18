@@ -1,4 +1,3 @@
-import { Node, LinkedList } from "./godly-linked-list.js"
 import { Queue } from "./queue.js"
 
 export class TreeNode {
@@ -81,7 +80,7 @@ export class TreeNode {
         }
     }
 
-    // print tree node vaues top to bottom, left to right
+    // print tree node values top to bottom, left to right
     printPreOrder() {
         if (this.data === undefined) {
             console.log("no roots")
@@ -93,7 +92,7 @@ export class TreeNode {
 
         treeNodeQueue.push(this)
 
-        while (treeNodeQueue.head !== null) {
+        while (!treeNodeQueue.isEmpty()) {
             let current = treeNodeQueue.head
 
             displayArr.push(current.data.data)
@@ -106,7 +105,7 @@ export class TreeNode {
 
             treeNodeQueue.pop()
         }
-        console.log(displayArr)
+        console.log(displayArr.join(" "))
     }
 }
 
