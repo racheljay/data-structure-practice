@@ -17,4 +17,4 @@ const tree2 = TreeNode.fromArray(case1)
 // tree2.contains(9)
 
 // tree2.printInOrder()
-// tree2.printPreOrder()
+tree2.printPreOrder()

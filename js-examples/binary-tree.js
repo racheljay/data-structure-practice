@@ -99,7 +99,10 @@ export class TreeNode {
             treeNodeQueue.push(this.right)
         }
 
+        displayArr.push(treeNodeQueue.head.data.data)
+
         let current = treeNodeQueue.head
+
 
         // let testQueue = new Queue()
         // console.log(testQueue.head)
@@ -112,13 +115,15 @@ export class TreeNode {
         let count = 0
         
         while(popped !== null) {
-            if(popped.next === null) {
-                displayArr.push(popped.data.data)
-            }
-            console.log("POPPED:",popped.data)
-            if(popped !== null) {
-                displayArr.push(popped.data.data)
-            }
+            displayArr.push(treeNodeQueue.head.data.data)
+            // console.log(treeNodeQueue.head.data.data)
+            // if(popped.next === null) {
+            //     displayArr.push(popped.data.data)
+            // }
+            // console.log("POPPED:",popped.data)
+            // if(popped !== null) {
+            //     displayArr.push(popped.data.data)
+            // }
             if(popped.data.left !== null && popped.data.right !== null) {
                 treeNodeQueue.push(popped.data.left)
                 treeNodeQueue.push(popped.data.right)

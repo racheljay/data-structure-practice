@@ -7,12 +7,26 @@ queue.push(5)
 queue.push(12)
 queue.push(13)
 
-while (queue.head.next !== null) {
+// queue.pop()
+// queue.pop()
+// queue.pop()
+// queue.pop()
+
+console.log("QUEUE:",queue.head)
+
+const displayArr = []
+
+let count = 0
+while (queue.head !== null) {
+    displayArr.push(queue.head.data)
+    count++
     console.log("HEAD",queue.head)
-    console.log("POP",queue.pop())
+    // console.log("POP",queue.pop())
     queue.pop()
 }
 
+console.log("NUM OF LOOPS", count)
+console.log(displayArr)
 // queue.pop()
 // queue.pop()
 
