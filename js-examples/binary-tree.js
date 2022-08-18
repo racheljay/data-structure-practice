@@ -1,4 +1,7 @@
-class Node {
+import { Node, LinkedList } from "./godly-linked-list.js"
+import { Queue } from "./queue.js"
+
+export class TreeNode {
     constructor(data) {
         this.data = data
         this.left = null
@@ -8,13 +11,13 @@ class Node {
     insert(value) {
         if (value <= this.data) {
             if (this.left === null) {
-                this.left = new Node(value)
+                this.left = new TreeNode(value)
             } else {
                 this.left.insert(value)
             }
         } else {
             if (this.right === null) {
-                this.right = new Node(value)
+                this.right = new TreeNode(value)
             } else {
                 this.right.insert(value)
             }
@@ -34,15 +37,15 @@ class Node {
         if (arr === []) {
             return null
         }
-        let current = new Node(arr[0])
+        let current = new TreeNode(arr[0])
 
         for (let i = 1; i < arr.length; i++) {
             let val = arr[i]
             current.insert(val)
-      
+
         }
 
-       return current
+        return current
 
     }
 
@@ -79,51 +82,51 @@ class Node {
     }
 
     printPreOrder() {
-        if(this.data === undefined) {
+        if (this.data === undefined) {
             console.log("nah sis, aint got no roots")
             return
         }
+        const displayArr = []
+
+        let treeNodeQueue = new Queue()
+
+        // record the first tree node
+        displayArr.push(this.data)
         
-        console.log(this.data)
-        if(this.left === null && this.right === null) return
-        // console.log("right", this.right, "left", this.left)
-        this.left.printPreOrder()
-        this.right.printPreOrder()
-        // let current = this
-        // let currentLeft = this.left
-        // let currentRight = this.right
+        // check for the first left and right and get the queue started
+        if(this.left !== null && this.right !== null) {
+            treeNodeQueue.push(this.left)
+            treeNodeQueue.push(this.right)
+        }
 
-    
-        // if(this.left !== null && this.right !== null) {
+        let current = treeNodeQueue.head
 
-        // }
-        // while(this.data !== null) {
-        //     // this.left.printInOrder()
-        //     console.log(currentLeft.data, currentRight.data)
+        // console.log("THIS ONE", treeNodeQueue.pop().data.data)
+        let popped = treeNodeQueue.pop()
+        console.log(popped.data)
+        
+        while(popped !== null || popped !== undefined) {
+            console.log(popped.data.data)
+            displayArr.push(popped.data.data)
+            // if(current.left !== null && current.right !== null) {
+                treeNodeQueue.push(popped.left)
+                treeNodeQueue.push(popped.right)
+          //  }
+        //   current = current.next
+        popped = treeNodeQueue.pop()
+        }
+        console.log({displayArr})
+        
 
-        // }
-        // if(this.right !== null) {
-        //     // this.right.printInOrder()
-        // }
-        // console.log(this.data, this.right.data, this.left.data)
+        // treeNodeQueue.push(this.left)
+        // treeNodeQueue.push(this.right)
+        // console.log(treeNodeQueue.head.data.data)
+
+        // treeNode5Queue.pop()
+        // treeNodeQueue.stringify()
+
+
 
     }
 }
 
-const myTree = new Node(4)
-
-const case1 = [4, 2, 7, 1, 3, 6, 9]
-
-// myTree.insertArray(case1)
-
-const tree2 = Node.fromArray(case1)
-// console.log(tree2)
-
-// tree2.insert(4)
-// tree2.insert(2)
-// tree2.insert(8)
-
-// tree2.contains(9)
-
-// tree2.printInOrder()
-tree2.printPreOrder()

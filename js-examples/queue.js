@@ -1,6 +1,6 @@
 import { Node, LinkedList } from "./godly-linked-list.js"
 
-class Queue extends LinkedList {
+export class Queue extends LinkedList {
     constructor() {
         super()
         this.tail = null
@@ -21,27 +21,19 @@ class Queue extends LinkedList {
 
     // removes the current head node
     pop() {
-        if (this.head === null) {
+        if (this.head.next === null) {
+            this.head = null
+            this.tail = null
+            // console.log(this.head)
             return
         }
+        // if (this.tail === null)
+        let oldHead = this.head
         let newHead = this.head.next
         this.head = newHead
+        // console.log("old head:", oldHead.data)
+        // console.log({oldHead})
+        return oldHead
     }
 }
 
-let queue = new Queue()
-
-queue.push(2)
-queue.push(5)
-queue.push(12)
-queue.push(13)
-
-// queue.append(4)
-// queue.append(7)
-// queue.append(9)
-// queue.pop()
-
-console.log("head:", queue.head.data, "tail:", queue.tail.data)
-// console.log(queue.head)
-
-queue.stringify()
