@@ -81,70 +81,32 @@ export class TreeNode {
         }
     }
 
+    // print tree node vaues top to bottom, left to right
     printPreOrder() {
         if (this.data === undefined) {
-            console.log("nah sis, aint got no roots")
+            console.log("no roots")
             return
         }
         const displayArr = []
 
         let treeNodeQueue = new Queue()
 
-        // record the first tree node
-        displayArr.push(this.data)
-        
-        // check for the first left and right and get the queue started
-        if(this.left !== null && this.right !== null) {
-            treeNodeQueue.push(this.left)
-            treeNodeQueue.push(this.right)
-        }
+        treeNodeQueue.push(this)
 
-        displayArr.push(treeNodeQueue.head.data.data)
+        while (treeNodeQueue.head !== null) {
+            let current = treeNodeQueue.head
 
-        let current = treeNodeQueue.head
-
-
-        // let testQueue = new Queue()
-        // console.log(testQueue.head)
-
-        // console.log("~~~~test queue:", testQueue.pop())
-
-        // console.log("THIS ONE", treeNodeQueue.pop().data.data)
-        let popped = treeNodeQueue.pop()
-        console.log("popped:", popped)
-        let count = 0
-        
-        while(popped !== null) {
-            displayArr.push(treeNodeQueue.head.data.data)
-            // console.log(treeNodeQueue.head.data.data)
-            // if(popped.next === null) {
-            //     displayArr.push(popped.data.data)
-            // }
-            // console.log("POPPED:",popped.data)
-            // if(popped !== null) {
-            //     displayArr.push(popped.data.data)
-            // }
-            if(popped.data.left !== null && popped.data.right !== null) {
-                treeNodeQueue.push(popped.data.left)
-                treeNodeQueue.push(popped.data.right)
+            displayArr.push(current.data.data)
+            if (current.data.left !== null) {
+                treeNodeQueue.push(current.data.left)
             }
-            popped = treeNodeQueue.pop()
-        // displayArr.push(popped.data.data)
-        count++
+            if (current.data.right !== null) {
+                treeNodeQueue.push(current.data.right)
+            }
+
+            treeNodeQueue.pop()
         }
-        console.log(treeNodeQueue)
-        console.log({displayArr})
-        
-
-        // treeNodeQueue.push(this.left)
-        // treeNodeQueue.push(this.right)
-        // console.log(treeNodeQueue.head.data.data)
-
-        // treeNode5Queue.pop()
-        // treeNodeQueue.stringify()
-
-
-
+        console.log(displayArr)
     }
 }
 
