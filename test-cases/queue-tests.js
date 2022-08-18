@@ -7,16 +7,21 @@ queue.push(5)
 queue.push(12)
 queue.push(13)
 
+while (queue.head.next !== null) {
+    console.log("HEAD",queue.head)
+    console.log("POP",queue.pop())
+    queue.pop()
+}
 
-queue.pop()
-queue.pop()
+// queue.pop()
+// queue.pop()
 
-queue.pop()
-queue.pop()
+// queue.pop()
+// queue.pop()
 // queue.pop()
 
 
 // console.log("head:", queue.head, "tail:", queue.tail)
-// console.log(queue.head)
+console.log(queue.head)
 
-// queue.stringify()
+queue.stringify()

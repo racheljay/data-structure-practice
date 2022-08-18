@@ -101,20 +101,33 @@ export class TreeNode {
 
         let current = treeNodeQueue.head
 
+        // let testQueue = new Queue()
+        // console.log(testQueue.head)
+
+        // console.log("~~~~test queue:", testQueue.pop())
+
         // console.log("THIS ONE", treeNodeQueue.pop().data.data)
         let popped = treeNodeQueue.pop()
-        console.log(popped.data)
+        console.log("popped:", popped)
+        let count = 0
         
-        while(popped !== null || popped !== undefined) {
-            console.log(popped.data.data)
-            displayArr.push(popped.data.data)
-            // if(current.left !== null && current.right !== null) {
-                treeNodeQueue.push(popped.left)
-                treeNodeQueue.push(popped.right)
-          //  }
-        //   current = current.next
-        popped = treeNodeQueue.pop()
+        while(popped !== null) {
+            if(popped.next === null) {
+                displayArr.push(popped.data.data)
+            }
+            console.log("POPPED:",popped.data)
+            if(popped !== null) {
+                displayArr.push(popped.data.data)
+            }
+            if(popped.data.left !== null && popped.data.right !== null) {
+                treeNodeQueue.push(popped.data.left)
+                treeNodeQueue.push(popped.data.right)
+            }
+            popped = treeNodeQueue.pop()
+        // displayArr.push(popped.data.data)
+        count++
         }
+        console.log(treeNodeQueue)
         console.log({displayArr})
         
 
