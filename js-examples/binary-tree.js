@@ -93,14 +93,14 @@ export class TreeNode {
         treeNodeQueue.push(this)
 
         while (!treeNodeQueue.isEmpty()) {
-            let current = treeNodeQueue.head
+            let current = treeNodeQueue.peek()
 
-            displayArr.push(current.data.data)
-            if (current.data.left !== null) {
-                treeNodeQueue.push(current.data.left)
+            displayArr.push(current.data)
+            if (current.left !== null) {
+                treeNodeQueue.push(current.left)
             }
-            if (current.data.right !== null) {
-                treeNodeQueue.push(current.data.right)
+            if (current.right !== null) {
+                treeNodeQueue.push(current.right)
             }
 
             treeNodeQueue.pop()
