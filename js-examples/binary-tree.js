@@ -23,6 +23,22 @@ export class TreeNode {
         }
     }
 
+    insertInvert(value) {
+        if (value <= this.data) {
+            if (this.right === null) {
+                this.right = new TreeNode(value)
+            } else {
+                this.right.insertInvert(value)
+            }
+        } else {
+            if (this.left === null) {
+                this.left = new TreeNode(value)
+            } else {
+                this.left.insertInvert(value)
+            }
+        }
+    }
+
     insertArray(arr) {
         for (let i = 0; i < arr.length; i++) {
             this.insert(arr[i])
@@ -41,12 +57,24 @@ export class TreeNode {
         for (let i = 1; i < arr.length; i++) {
             let val = arr[i]
             current.insert(val)
-
         }
-
         return current
-
     }
+
+    static fromArrayInverted(arr) {
+        if (arr === []) {
+            return null
+        }
+        let current = new TreeNode(arr[0])
+
+        for (let i = 1; i < arr.length; i++) {
+            let val = arr[i]
+            current.insertInvert(val)
+        }
+        return current
+    }
+
+
 
     contains(value) {
         if (value === this.data) {
@@ -81,6 +109,7 @@ export class TreeNode {
     }
 
     // print tree node values top to bottom, left to right
+    // also returns the node values in an array
     printPreOrder() {
         if (this.data === undefined) {
             console.log("no roots")
@@ -106,6 +135,25 @@ export class TreeNode {
             treeNodeQueue.pop()
         }
         console.log(displayArr.join(" "))
+        return displayArr
+    }
+
+    invertInPlace() {
+        if (this.left === null && this.right === null) return
+        // if (this.left.data < this.right.data) {
+        let oldLeft = this.left
+        this.left = this.right
+        this.right = oldLeft
+        this.right && this.right.invertInPlace()
+        this.left && this.left.invertInPlace()
+        // this.invertInPlace()
+        // console.log("left",this.left, "right", this.right)
+        // return
+        // } 
+        // else {
+        //     this.right.invertInPlace()
+        //     this.left.invertInPlace()
+        // }
     }
 }
 

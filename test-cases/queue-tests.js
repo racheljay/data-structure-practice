@@ -37,7 +37,7 @@ queue.push(5)
 // queue.pop()
 
 
-console.log("head:", queue.head, "tail:", queue.tail, "length:", queue.length)
-console.log(queue.head)
+// console.log("head:", queue.head, "tail:", queue.tail, "length:", queue.length)
+console.log(`${queue}`)
 
 // queue.stringify()

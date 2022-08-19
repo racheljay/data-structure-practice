@@ -6,15 +6,36 @@ const case1 = [4, 2, 7, 1, 3, 6, 9]
 
 // myTree.insertArray(case1)
 
-const tree2 = TreeNode.fromArray(case1)
+const startTree = TreeNode.fromArray(case1)
+startTree.insert(8)
+console.log(startTree)
+
+startTree.invertInPlace()
+console.log(startTree)
+startTree.printPreOrder()
 // console.log(tree2.right.right.data)
 // console.log(tree2)
 
-// tree2.insert(4)
-// tree2.insert(2)
-// tree2.insert(8)
 
 // tree2.contains(9)
 
 // tree2.printInOrder()
-tree2.printPreOrder()
+// startTree.printPreOrder()
+
+// const invertedTree = TreeNode.fromArrayInverted(case1)
+// invertedTree.printPreOrder()
+
+// invertedTree.printPreOrder()
+
+// const invertedTree = new TreeNode(4)
+
+// invertedTree.insertInvert(4)
+// invertedTree.insertInvert(2)
+// invertedTree.insertInvert(7)
+// invertedTree.insertInvert(1)
+// invertedTree.insertInvert(3)
+// invertedTree.insertInvert(6)
+// invertedTree.insertInvert(9)
+
+// console.log(invertedTree)
+

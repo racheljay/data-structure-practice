@@ -156,6 +156,22 @@ export class LinkedList {
         return this.head.stringifyTwo()
     }
 
+    toString() {
+        let string = ""
+        if (this.head === null) {
+            return "this shit empty"
+        }
+        let current = this.head
+
+        while (current.next !== null) {
+            string = string + current.stringify() + "->"
+            current = current.next
+        }
+        string = string + current.stringify()
+        return string
+        // console.log(string)
+    }
+
     static fromArray(arr) {
         const linkedList = new LinkedList()
 
