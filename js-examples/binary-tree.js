@@ -140,20 +140,12 @@ export class TreeNode {
 
     invertInPlace() {
         if (this.left === null && this.right === null) return
-        // if (this.left.data < this.right.data) {
         let oldLeft = this.left
         this.left = this.right
         this.right = oldLeft
         this.right && this.right.invertInPlace()
         this.left && this.left.invertInPlace()
-        // this.invertInPlace()
-        // console.log("left",this.left, "right", this.right)
-        // return
-        // } 
-        // else {
-        //     this.right.invertInPlace()
-        //     this.left.invertInPlace()
-        // }
+
     }
 }
 
