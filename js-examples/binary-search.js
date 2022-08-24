@@ -1,12 +1,11 @@
 function binarySearchRecursive(arr, target, left, right) {
-    if (left < right) {
+    if (left > right) {
         return false;
     }
-
-    mid = (left + right) / 2
-    if (arr[mid] === x) {
+    let mid = Math.round((left + right) / 2)
+    if (arr[mid] === target) {
         return true;
-    } else if (x < arr[mid]) {
+    } else if (target < arr[mid]) {
         return binarySearchRecursive(arr, target, left, mid - 1)
     } else {
         return binarySearchRecursive(arr, target, mid + 1, right)
@@ -14,16 +13,24 @@ function binarySearchRecursive(arr, target, left, right) {
 }
 
 function binarySearchIterative(arr, target) {
-    left = 0
-    right = arr.length - 1
+    let left = 0
+    let right = arr.length - 1
     while (left <= right) {
-        mid = (right + left) / 2
+        let mid = Math.floor((right + left) / 2)
         if (arr[mid] === target) {
+            console.log(mid)
             return true
-        } else if (x < arr[mid]) {
+        } else if (target < arr[mid]) {
             right = mid - 1
         } else {
             left = mid + 1
         }
     }
+    return false
 }
+
+const array = [2, 5]
+
+console.log(binarySearchIterative(array, 5))
+
+// console.log(binarySearchRecursive(array, 5, 0, array.length - 1 ))
