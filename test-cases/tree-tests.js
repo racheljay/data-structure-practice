@@ -3,16 +3,21 @@ import { TreeNode } from "../js-examples/binary-tree.js"
 // const myTree = new TreeNode(4)
 
 const case1 = [4, 2, 7, 1, 3, 6, 9]
+const case2 = [6, 2, 8, 0, 4, 7, 9, 3, 5]
 
 // myTree.insertArray(case1)
 
-const startTree = TreeNode.fromArray(case1)
-startTree.insert(8)
-console.log(startTree)
+const testTree = TreeNode.fromArray(case2)
+//console.log(testTree)
+testTree.lowestCommonAncestor(5, 8)
 
-startTree.invertInPlace()
-console.log(startTree)
-startTree.printPreOrder()
+// const startTree = TreeNode.fromArray(case1)
+// startTree.insert(8)
+// console.log(startTree)
+
+// startTree.invertInPlace()
+// console.log(startTree)
+// startTree.printPreOrder()
 // console.log(tree2.right.right.data)
 // console.log(tree2)
 

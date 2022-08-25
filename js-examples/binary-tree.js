@@ -147,5 +147,24 @@ export class TreeNode {
         this.left && this.left.invertInPlace()
 
     }
+
+    lowestCommonAncestor(p, q) {
+        const pathToP = []
+        const pathToQ = []
+
+        let current = this
+
+        pathToP.push(this.data)
+        while(p !== current.data) {
+            if(p < current.data) {
+                current = current.left
+                pathToP.push(current.data)
+            } else if(p < current.data) {
+                current = current.left
+                pathToP.push(current.data)
+            }
+        }
+
+    }
 }
 
