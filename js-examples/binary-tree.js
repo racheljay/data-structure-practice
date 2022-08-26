@@ -148,23 +148,61 @@ export class TreeNode {
 
     }
 
-    lowestCommonAncestor(p, q) {
-        const pathToP = []
-        const pathToQ = []
-
-        let current = this
-
-        pathToP.push(this.data)
-        while(p !== current.data) {
-            if(p < current.data) {
-                current = current.left
-                pathToP.push(current.data)
-            } else if(p < current.data) {
-                current = current.left
-                pathToP.push(current.data)
+    printPath(finalNode) {
+        console.log(this.data)
+        if (this.data === finalNode) {
+            return
+        } else if (finalNode < this.data) {
+            if (this.left === null) {
+                console.log("data not found")
+                return
+            } else {
+                return this.left.printPath(finalNode)
+            }
+        } else {
+            if (this.right === null) {
+                console.log("data still not found")
+                return
+            } else {
+                return this.right.printPath(finalNode)
             }
         }
+    }
 
+    lowestCommonAncestor(p, q) {
+        
+        const savePath = data => {
+            const arr = []
+
+            let current = this
+            while (current !== null) {
+
+                arr.push(current.data)
+                if (data === current.data) {
+                    return arr
+                } else if (data < current.data) {
+                    if (current.left === null) {
+                        console.log("no dice")
+                        return
+                    } else {
+                        current = current.left
+                    }
+                } else {
+                    if(current.right === null) {
+                        console.long("still no dice")
+                        return
+                    } else {
+                        current = current.right
+                    }
+                }
+            }
+            return arr
+        }
+
+        const pArr = savePath(p)
+        const qArr = savePath(q)
+        console.log(pArr, qArr)
+        
     }
 }
 

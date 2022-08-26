@@ -8,6 +8,8 @@ const case2 = [6, 2, 8, 0, 4, 7, 9, 3, 5]
 // myTree.insertArray(case1)
 
 const testTree = TreeNode.fromArray(case2)
+
+// testTree.printPath(5)
 //console.log(testTree)
 testTree.lowestCommonAncestor(5, 8)
 
