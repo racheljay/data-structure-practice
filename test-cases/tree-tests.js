@@ -11,7 +11,7 @@ const testTree = TreeNode.fromArray(case2)
 
 // testTree.printPath(5)
 //console.log(testTree)
-testTree.lowestCommonAncestor(5, 8)
+testTree.lowestCommonAncestor(2, 4)
 
 // const startTree = TreeNode.fromArray(case1)
 // startTree.insert(8)

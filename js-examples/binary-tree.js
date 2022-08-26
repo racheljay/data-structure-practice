@@ -170,16 +170,15 @@ export class TreeNode {
     }
 
     lowestCommonAncestor(p, q) {
-        
+
         const savePath = data => {
-            const arr = []
+            const pathSet = new Set()
 
             let current = this
             while (current !== null) {
-
-                arr.push(current.data)
+                pathSet.add(current.data)
                 if (data === current.data) {
-                    return arr
+                    return pathSet
                 } else if (data < current.data) {
                     if (current.left === null) {
                         console.log("no dice")
@@ -188,7 +187,7 @@ export class TreeNode {
                         current = current.left
                     }
                 } else {
-                    if(current.right === null) {
+                    if (current.right === null) {
                         console.long("still no dice")
                         return
                     } else {
@@ -196,13 +195,31 @@ export class TreeNode {
                     }
                 }
             }
-            return arr
+            return pathSet
         }
 
-        const pArr = savePath(p)
-        const qArr = savePath(q)
-        console.log(pArr, qArr)
-        
+        const pSet = savePath(p)
+        const qSet = savePath(q)
+        console.log(pSet, qSet)
+
+        const commonAncestors = new Set();
+
+        for (const num of qSet) {
+            if (pSet.has(num)) {
+                commonAncestors.add(num);
+            }
+        }
+        console.log(commonAncestors)
+
+        let highest = Number.MAX_SAFE_INTEGER
+        commonAncestors.forEach((num) => {
+            if(num < highest) {
+                highest = num
+            }
+            
+        })
+        console.log(highest)
+        return highest
     }
 }
 
