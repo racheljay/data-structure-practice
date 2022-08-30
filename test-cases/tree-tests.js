@@ -4,14 +4,19 @@ import { TreeNode } from "../js-examples/binary-tree.js"
 
 const case1 = [4, 2, 7, 1, 3, 6, 9]
 const case2 = [6, 2, 8, 0, 4, 7, 9, 3, 5]
+const case3 = [2]
 
 // myTree.insertArray(case1)
 
-const testTree = TreeNode.fromArray(case2)
+// const testTree = TreeNode.fromArray(case2)
+
+const singleTree = TreeNode.fromArray(case1)
+
+singleTree.isBalanced()
 
 // testTree.printPath(5)
 //console.log(testTree)
-testTree.lowestCommonAncestor(2, 4)
+// testTree.lowestCommonAncestor(2, 8)
 
 // const startTree = TreeNode.fromArray(case1)
 // startTree.insert(8)

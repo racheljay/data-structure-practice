@@ -188,7 +188,7 @@ export class TreeNode {
                     }
                 } else {
                     if (current.right === null) {
-                        console.long("still no dice")
+                        console.log("still no dice")
                         return
                     } else {
                         current = current.right
@@ -213,13 +213,46 @@ export class TreeNode {
 
         let highest = Number.MAX_SAFE_INTEGER
         commonAncestors.forEach((num) => {
-            if(num < highest) {
+            if (num < highest) {
                 highest = num
             }
-            
+
         })
         console.log(highest)
         return highest
     }
+
+    isBalanced() {
+
+        // what is my height?
+        // am I balanced?
+
+
+        const height = root => {
+            if (root === null) {
+                return 0
+            }
+            return Math.max(height(root.left), height(root.right)) + 1
+        }
+
+        console.log(height(this))
+
+        const leftHeight = height(this.left)
+        const rightHeight = height(this.right)
+
+        const diff = Math.abs(leftHeight - rightHeight)
+
+        if(diff <= 1) {
+            console.log("balanced")
+            return true
+        } else {
+            console.log("not balanced")
+            return false
+        }
+
+
+    }
+
+
 }
 
