@@ -228,11 +228,11 @@ export class TreeNode {
         // am I balanced?
 
 
-        const height = root => {
-            if (root === null) {
+        const height = node => {
+            if (node === null) {
                 return 0
             }
-            return Math.max(height(root.left), height(root.right)) + 1
+            return Math.max(height(node.left), height(node.right)) + 1
         }
 
         console.log(height(this))
