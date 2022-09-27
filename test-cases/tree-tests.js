@@ -5,12 +5,15 @@ import { TreeNode } from "../js-examples/binary-tree.js"
 const case1 = [4, 2, 7, 1, 3, 6, 9]
 const case2 = [6, 2, 8, 0, 4, 7, 9, 3, 5]
 const case3 = [2]
+const case4 = [1,2,2,3,3,4,4]
+const case5 = [1,2,2,3,null,null,3,4,null,null,4]
 
 // myTree.insertArray(case1)
 
 // const testTree = TreeNode.fromArray(case2)
 
-const singleTree = TreeNode.fromArray(case1)
+const singleTree = TreeNode.fromArray(case5)
+console.log(singleTree)
 
 singleTree.isBalanced()
 
