@@ -1,40 +1,24 @@
 // take an array and convert it to a linked list
 
 
-function toLinkedList (arr) {
+function toLinkedList(arr) {
 
     function Node(data) {
         this.data = data
         this.next = null
     }
 
-    // let head = null
+    const list = new Node(arr[0])
+    let current = list
 
-    function List() {
-        this.head = null
-    }
+    for(let i = 1; i < arr.length; i++) {
 
- 
-    List.prototype.append = function(data) {
-        // let node = new Node(data)
-        if(this.head === null) {
-            this.head = new Node(data)
-            return
-        }
-        let current = this.head
-        while (current.next != null) {
-            current = current.next
-        }
-        current.next = new Node(data)
-    }
+        current.next = new Node(arr[i])
+        current = current.next
 
-    let list = new List
-    
-    for(let num of arr) {
-        list.append(num)
-        
     }
-console.log(list.head)
+    console.log(list)
+    return list
 
 }
 
